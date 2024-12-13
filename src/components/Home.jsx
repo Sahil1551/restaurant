@@ -1,7 +1,7 @@
 import React from "react";
 import pic from "/homepic1.webp";
 import bgimg from '/bg_image.png'
-import Logo from '/Logo.jpeg'
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { useState,useEffect } from "react";
@@ -9,7 +9,7 @@ import fp1 from '/food_pic_1.webp'
 import fp2 from '/food_pic_2.png' 
 import phot from '/ProfilePhoto.jpg'
 import { Link } from "react-router-dom";
-const Home = () => {
+const Home = ({ toggleModal }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-scroll functionality to change the review every 5 seconds
@@ -74,9 +74,12 @@ const Home = () => {
             <button className="bg-blue-950 text-white px-6 py-3 rounded-tl-lg rounded-br-lg shadow-md hover:bg-blue-600 transition duration-300">
               Menu
             </button>
-            <button className="bg-[rgba(189,53,51,1)] text-white px-6 py-3 rounded-tl-lg rounded-br-lg shadow-md hover:bg-red-700 transition duration-300">
-              Book a Table
-            </button>
+            <button
+          onClick={toggleModal}
+          className="bg-[rgba(189,53,51,1)] text-white px-6 py-2 rounded-tl-lg rounded-br-lg shadow-md hover:bg-blue-600 transition duration-300"
+        >
+          Book a Table
+        </button>
           </div>
 
           {/* Social Media Icons */}
@@ -186,7 +189,8 @@ const Home = () => {
         <button className="bg-blue-950 text-white px-6 py-3 rounded-tl-lg rounded-br-lg shadow-md hover:bg-blue-600 transition duration-300">
           Menu
         </button>
-        <button className="bg-[rgba(189,53,51,1)] text-white px-6 py-3 rounded-tl-lg rounded-br-lg shadow-md hover:bg-red-700 transition duration-300">
+        <button 
+          onClick={toggleModal} className="bg-[rgba(189,53,51,1)] text-white px-6 py-3 rounded-tl-lg rounded-br-lg shadow-md hover:bg-red-700 transition duration-300">
           Book a Table
         </button>
       </div>
@@ -240,76 +244,6 @@ const Home = () => {
       ))}
     </div>
   </div>
-</div>
-<div className="footer">
-<footer className="bg-gray-100 py-10">
-  <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
-    {/* Left Section */}
-    <div className="text-center md:text-left md:w-1/4">
-      <div className="flex justify-center md:justify-start items-center mb-4">
-        <img
-          src={Logo}
-          alt="Restaurant Logo"
-          className="w-[120px] h-[120px]"
-        />
-      </div>
-    </div>
-
-    {/* Navigation Section */}
-    <div className="text-center md:text-left md:w-1/4">
-      <h3 className="font-semibold text-gray-700 mb-2">NAVIGATION</h3>
-      <ul className="text-sm cursor-pointer flex flex-col items-center md:items-start text-gray-500 space-y-1">
-        <li>
-          <Link href="#">Menu</Link>
-        </li>
-        <li>
-          <Link href="#">About us</Link>
-        </li>
-        <li>
-          <Link href="#">Contact us</Link>
-        </li>
-        <li>
-          <Link href="#">Main dishes</Link>
-        </li>
-      </ul>
-    </div>
-
-    {/* Dishes Section */}
-    <div className="text-center md:text-left md:w-1/4">
-      <h3 className="font-semibold text-gray-700 mb-2">DISHES</h3>
-      <ul className="text-sm flex flex-col items-center md:items-start text-gray-500 space-y-1">
-        <li>Fish & Viggies</li>
-        <li>Tofu Chili</li>
-        <li>Egg & Cocumber</li>
-        <li>Lumpia w/Sauce</li>
-      </ul>
-    </div>
-
-    {/* Follow Us Section */}
-    <div className="text-center md:w-1/4">
-      <h3 className="font-semibold text-gray-700 mb-2">FOLLOW US</h3>
-      <div className="flex justify-center space-x-4">
-        <a href="#" className="fab fa-facebook text-xl text-gray-500 hover:text-blue-600"></a>
-        <a href="#" className="fab fa-twitter text-xl text-gray-500 hover:text-blue-400"></a>
-        <a href="#" className="fab fa-instagram text-xl text-gray-500 hover:text-pink-500"></a>
-      </div>
-    </div>
-  </div>
-
-  {/* Bottom Section */}
-  <div className="border-t mt-10 pt-5 text-center text-sm text-gray-500">
-    <div>© 2022 Restaurants. All Right Reserved. Designed by Isaac</div>
-    <div className="flex justify-center space-x-4 mt-2">
-      <a href="#terms" className="hover:underline">
-        Terms of Service
-      </a>
-      <a href="#privacy" className="hover:underline">
-        Privacy Policy
-      </a>
-    </div>
-  </div>
-</footer>
-
 </div>
     </div>
     

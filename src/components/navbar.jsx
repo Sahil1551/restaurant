@@ -2,21 +2,20 @@ import React, { useState } from 'react'
 import Logo from '/Logo.jpeg'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ toggleModal })=> {
   const [isOpen, setIsOpen] = useState(false)
-
+  const click=()=>{
+    window.location.href='/';
+  }
   return (
     <div className="w-full flex justify-between items-center px-8 bg-white">
       {/* Logo */}
       <div className="w-[198px]">
-        <img src={Logo} className="w-full" alt="Logo" />
+        <img src={Logo} onClick={click} className="w-full cursor-pointer" alt="Logo" />
       </div>
 
       {/* Navigation Links */}
       <div className="hidden md:flex gap-8 text-xl text-gray-800">
-        <Link to="/Menu" className="hover:text-red-500 transition duration-300">Menu</Link>
-        <Link to="/Events" className="hover:text-red-500 transition duration-300">Events</Link>
-        <Link to="/Gallery" className="hover:text-red-500 transition duration-300">Gallery</Link>
         <Link to="/About" className="hover:text-red-500 transition duration-300">About</Link>
         <Link to="/Contact" className="hover:text-red-500 transition duration-300">Contact</Link>
       </div>
@@ -24,7 +23,8 @@ const Navbar = () => {
       {/* Book a Table Button */}
       <div className="hidden md:block">
         
-<button className="bg-[rgba(189,53,51,1)] text-white px-6 py-2 rounded-tl-lg rounded-br-lg shadow-md hover:bg-blue-600 transition duration-300">
+<button 
+          onClick={toggleModal} className="bg-[rgba(189,53,51,1)] text-white px-6 py-2 rounded-tl-lg rounded-br-lg shadow-md hover:bg-blue-600 transition duration-300">
           Book a table
         </button>
       </div>
@@ -48,17 +48,17 @@ const Navbar = () => {
         </div>
         
         <div className="flex flex-col items-center gap-4 text-lg text-gray-800">
-          <Link to="/Menu" className="hover:text-red-500 transition duration-300" onClick={() => setIsOpen(false)}>Menu</Link>
-          <Link to="/Events" className="hover:text-red-500 transition duration-300" onClick={() => setIsOpen(false)}>Events</Link>
-          <Link to="/Gallery" className="hover:text-red-500 transition duration-300" onClick={() => setIsOpen(false)}>Gallery</Link>
           <Link to="/About" className="hover:text-red-500 transition duration-300" onClick={() => setIsOpen(false)}>About</Link>
           <Link to="/Contact" className="hover:text-red-500 transition duration-300" onClick={() => setIsOpen(false)}>Contact</Link>
         </div>
         
         <div className="text-center mt-6">
-          <button className="bg-[rgba(189,53,51,1)] text-white rounded-lg py-2 px-6 shadow-md hover:bg-red-600 transition duration-300">
-            Book a table
-          </button>
+        <button
+          onClick={toggleModal}
+          className="bg-[rgba(189,53,51,1)] text-white px-6 py-2 rounded-tl-lg rounded-br-lg shadow-md hover:bg-blue-600 transition duration-300"
+        >
+          Book a Table
+        </button>
         </div>
       </div>
     </div>
